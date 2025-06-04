@@ -1,12 +1,11 @@
 # auto-push.ps1
-Set-Location "C:\Users\ok\Desktop\github"  # 👉 여기를 본인 프로젝트 경로로 수정하세요
+$OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
+Set-Location "C:\Users\ok\Desktop\github"  # ← 본인 폴더 경로로 수정
 
 while ($true) {
-    # 변경 사항이 있는지 확인
     $status = git status --porcelain
-
     if ($status) {
-        Write-Output "`n📝 변경 감지됨 → 자동 커밋 & 푸시 진행 중..."
+        Write-Output "`n📝 변경 감지됨 → 자동 커밋 & 푸시 진행..."
 
         git add .
 
@@ -16,6 +15,5 @@ while ($true) {
         git push
         Write-Output "✅ 푸시 완료: $timestamp"
     }
-
-    Start-Sleep -Seconds 10  # ⏱ 10초마다 반복 확인
+    Start-Sleep -Seconds 10
 }
