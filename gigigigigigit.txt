@@ -7,3 +7,5 @@ git add xxxxx.txt
 git commit -m "내용 추가"
 
 git push
+
+gitgitgitgitgit
